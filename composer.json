@@ -11,45 +11,105 @@
             "role": "lead"
         }
     ],
-    "version": "2.30.0",
+    "version": "100",
     "time": "2019-09-29",
     "repositories": [
         {
-            "type": "pear",
-            "url": "https://pear.horde.org"
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Crypt_Blowfish"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Exception"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Imap_Client"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Idna"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/ListHeaders"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Mail"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Mime"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Secret"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Socket_Client"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Stream"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Stream_Filter"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Stream_Wrapper"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Support"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Test"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Text_Flowed"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Translation"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/IServ-GmbH/Util"
         }
     ],
     "require": {
-        "php": "^5.3 || ^7",
-        "pear-pear.horde.org/Horde_Exception": "^2",
-        "pear-pear.horde.org/Horde_Mail": "^2",
-        "pear-pear.horde.org/Horde_Mime": "^2.5.2",
-        "pear-pear.horde.org/Horde_Socket_Client": "^2",
-        "pear-pear.horde.org/Horde_Stream": "^1.4",
-        "pear-pear.horde.org/Horde_Secret": "^2",
-        "pear-pear.horde.org/Horde_Stream_Filter": "^2",
-        "pear-pear.horde.org/Horde_Translation": "^2.2",
-        "pear-pear.horde.org/Horde_Util": "^2",
+        "php": ">=7.3",
         "ext-hash": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "horde/exception": "100",
+        "horde/mail": "100",
+        "horde/mime": "100",
+        "horde/socket-client": "100",
+        "horde/stream": "100",
+        "horde/secret": "100",
+        "horde/stream-filter": "100",
+        "horde/translation": "100",
+        "horde/util": "100"
     },
     "suggest": {
-        "pear-pear.horde.org/Horde_Cache": "^2",
-        "pear-pear.horde.org/Horde_Compress_Fast": "^1",
-        "pear-pear.horde.org/Horde_Crypt_Blowfish": "^1.1",
-        "pear-pear.horde.org/Horde_Db": "^2.2",
-        "pear-pear.horde.org/Horde_HashTable": "^1",
-        "pear-pear.horde.org/Horde_Mongo": "^1",
-        "pear-pear.horde.org/Horde_Pack": "^1",
-        "pear-pear.horde.org/Horde_Stringprep": "^1",
-        "pear-pear.horde.org/Horde_Support": "^2",
-        "pear-pear.horde.org/Horde_Test": "^2.2.7",
         "ext-intl": "*",
-        "ext-mbstring": "*"
-    },
-    "replace": {
-        "pear-pear.horde.org/Horde_Imap_Client": "2.*",
-        "pear-horde/Horde_Imap_Client": "2.*"
+        "ext-mbstring": "*",
+        "horde/cache": "^2",
+        "horde/compress-fast": "^1",
+        "horde/crypt-blowfish": "^1.1",
+        "horde/db": "^2.2",
+        "horde/hashtable": "^1",
+        "horde/mongo": "^1",
+        "horde/pack": "^1",
+        "horde/stringprep": "^1",
+        "horde/support": "^2",
+        "horde/test": "^2.2.7"
     },
     "autoload": {
         "psr-0": {
