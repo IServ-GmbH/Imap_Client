@@ -388,7 +388,7 @@ class Horde_Imap_Client_Ids implements Countable, Iterator, Serializable
 
     /**
      */
-    public function current()
+    public function current(): mixed
     {
         return is_array($this->_ids)
             ? current($this->_ids)
@@ -397,7 +397,7 @@ class Horde_Imap_Client_Ids implements Countable, Iterator, Serializable
 
     /**
      */
-    public function key()
+    public function key(): mixed
     {
         return is_array($this->_ids)
             ? key($this->_ids)

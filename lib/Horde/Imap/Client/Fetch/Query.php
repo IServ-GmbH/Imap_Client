@@ -309,7 +309,7 @@ class Horde_Imap_Client_Fetch_Query implements ArrayAccess, Countable, Iterator
 
     /**
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return isset($this->_data[$offset])
             ? $this->_data[$offset]
@@ -343,7 +343,7 @@ class Horde_Imap_Client_Fetch_Query implements ArrayAccess, Countable, Iterator
 
     /**
      */
-    public function current()
+    public function current(): mixed
     {
         $opts = current($this->_data);
 
@@ -354,7 +354,7 @@ class Horde_Imap_Client_Fetch_Query implements ArrayAccess, Countable, Iterator
 
     /**
      */
-    public function key()
+    public function key(): mixed
     {
         return key($this->_data);
     }

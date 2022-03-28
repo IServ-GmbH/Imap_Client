@@ -220,14 +220,14 @@ class Horde_Imap_Client_Tokenize implements Iterator
 
     /**
      */
-    public function current()
+    public function current(): mixed
     {
         return $this->_current;
     }
 
     /**
      */
-    public function key()
+    public function key(): mixed
     {
         return $this->_key;
     }

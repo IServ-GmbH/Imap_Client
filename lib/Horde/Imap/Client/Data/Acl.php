@@ -107,7 +107,7 @@ class Horde_Imap_Client_Data_Acl extends Horde_Imap_Client_Data_AclCommon implem
 
     /**
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return in_array($offset, $this->_rights);
     }

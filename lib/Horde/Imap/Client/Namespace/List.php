@@ -84,7 +84,7 @@ implements ArrayAccess, Countable, IteratorAggregate
 
     /**
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         $offset = strval($offset);
 

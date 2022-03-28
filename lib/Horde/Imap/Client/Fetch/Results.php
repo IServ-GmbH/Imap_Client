@@ -139,7 +139,7 @@ implements ArrayAccess, Countable, IteratorAggregate
 
     /**
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return isset($this->_data[$offset])
             ? $this->_data[$offset]

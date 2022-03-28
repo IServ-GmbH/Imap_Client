@@ -101,7 +101,7 @@ class Horde_Imap_Client_Data_AclRights extends Horde_Imap_Client_Data_AclCommon 
 
     /**
      */
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         if (isset($this->_optional[$offset])) {
             return $this->_optional[$offset];
@@ -140,7 +140,7 @@ class Horde_Imap_Client_Data_AclRights extends Horde_Imap_Client_Data_AclCommon 
 
     /**
      */
-    public function current()
+    public function current(): mixed
     {
         $val = current($this->_required);
         return is_null($val)
@@ -150,7 +150,7 @@ class Horde_Imap_Client_Data_AclRights extends Horde_Imap_Client_Data_AclCommon 
 
     /**
      */
-    public function key()
+    public function key(): mixed
     {
         $key = key($this->_required);
         return is_null($key)
