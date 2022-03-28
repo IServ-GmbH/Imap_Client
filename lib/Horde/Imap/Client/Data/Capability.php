@@ -197,6 +197,16 @@ implements Serializable, SplSubject
 
     /* Serializable methods. */
 
+    public function __serialize(): array
+    {
+        return $this->_data;
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->_data = $data;
+    }
+
     /**
      */
     public function serialize()

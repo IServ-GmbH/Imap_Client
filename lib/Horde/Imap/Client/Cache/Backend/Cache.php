@@ -495,6 +495,13 @@ extends Horde_Imap_Client_Cache_Backend
 
     /* Serializable methods. */
 
+    public function __serialize(): array
+    {
+        $this->save();
+
+        return parent::__serialize();
+    }
+
     /**
      */
     public function serialize()

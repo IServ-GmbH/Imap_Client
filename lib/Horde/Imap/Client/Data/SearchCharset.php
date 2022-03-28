@@ -161,6 +161,16 @@ implements Serializable, SplSubject
 
     /* Serializable methods. */
 
+    public function __serialize(): array
+    {
+        return $this->_charsets;
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->_charsets = $data;
+    }
+
     /**
      */
     public function serialize()
