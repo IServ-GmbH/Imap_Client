@@ -346,7 +346,7 @@ implements Serializable, SplObserver
 
     /**
      */
-    public function update(SplSubject $subject)
+    public function update(SplSubject $subject): void
     {
         if (($subject instanceof Horde_Imap_Client_Data_Capability) ||
             ($subject instanceof Horde_Imap_Client_Data_SearchCharset)) {

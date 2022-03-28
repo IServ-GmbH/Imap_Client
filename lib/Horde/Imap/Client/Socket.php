@@ -208,7 +208,7 @@ class Horde_Imap_Client_Socket extends Horde_Imap_Client_Base
 
     /**
      */
-    public function update(SplSubject $subject)
+    public function update(SplSubject $subject): void
     {
         if (!empty($this->_init['imapproxy']) &&
             ($subject instanceof Horde_Imap_Client_Data_Capability_Imap)) {

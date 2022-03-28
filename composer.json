@@ -11,21 +11,19 @@
             "role": "lead"
         }
     ],
-    "version": "103",
-    "time": "2019-09-29",
     "require": {
         "php": ">=7.3",
         "ext-hash": "*",
         "ext-json": "*",
-        "horde/exception": "103",
-        "horde/mail": "103",
-        "horde/mime": "103",
-        "horde/socket-client": "103",
-        "horde/stream": "103",
-        "horde/secret": "103",
-        "horde/stream-filter": "103",
-        "horde/translation": "103",
-        "horde/util": "103"
+        "horde/exception": ">=106",
+        "horde/mail": ">=106",
+        "horde/mime": ">=106",
+        "horde/socket-client": ">=106",
+        "horde/stream": ">=106",
+        "horde/secret": ">=106",
+        "horde/stream-filter": ">=106",
+        "horde/translation": ">=106",
+        "horde/util": ">=106"
     },
     "suggest": {
         "ext-intl": "*",
