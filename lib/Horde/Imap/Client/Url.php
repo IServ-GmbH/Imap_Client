@@ -285,6 +285,16 @@ class Horde_Imap_Client_Url implements Serializable
 
     /* Serializable methods. */
 
+    public function __serialize(): array
+    {
+        return [strval($this)];
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->_parse($data[0]);
+    }
+
     /**
      */
     public function serialize()

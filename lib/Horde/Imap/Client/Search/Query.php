@@ -859,6 +859,34 @@ class Horde_Imap_Client_Search_Query implements Serializable
 
     /* Serializable methods. */
 
+    public function __serialize(): array
+    {
+        $data = array(
+            // Serialized data ID.
+            self::VERSION,
+            $this->_search
+        );
+
+        if (!is_null($this->_charset)) {
+            $data[] = $this->_charset;
+        }
+
+        return $data;
+    }
+
+    public function __unserialize(array $data): void
+    {
+        if (!isset($data[0]) ||
+            ($data[0] != self::VERSION)) {
+            throw new Exception('Cache version change');
+        }
+
+        $this->_search = $data[1];
+        if (isset($data[2])) {
+            $this->_charset = $data[2];
+        }
+    }
+
     /**
      * Serialization.
      *
