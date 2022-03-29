@@ -370,8 +370,6 @@ class Horde_Imap_Client_Tokenize implements Iterator
         } while (true);
 
         $this->_current = $text;
-
-        return $text;
     }
 
     /**

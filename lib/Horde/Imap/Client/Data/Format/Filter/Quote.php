@@ -34,6 +34,8 @@ class Horde_Imap_Client_Data_Format_Filter_Quote extends php_user_filter
     public function onCreate(): bool
     {
         $this->_prepend = false;
+
+        return true;
     }
 
     /**

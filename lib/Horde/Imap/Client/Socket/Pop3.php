@@ -495,7 +495,7 @@ class Horde_Imap_Client_Socket_Pop3 extends Horde_Imap_Client_Base
             );
 
             $sr2 = base64_decode(substr($c2['resp'], 2));
-            if (!$scram->parseServerFirstMessage($sr)) {
+            if (!$scram->parseServerFirstMessage($sr2)) {
                 throw new Horde_Imap_Client_Exception(
                     Horde_Imap_Client_Translation::r("Authentication failed."),
                     Horde_Imap_Client_Exception::LOGIN_AUTHENTICATIONFAILED
