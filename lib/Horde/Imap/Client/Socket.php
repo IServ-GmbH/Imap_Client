@@ -215,7 +215,7 @@ class Horde_Imap_Client_Socket extends Horde_Imap_Client_Base
             $this->_setInit('enabled', $subject->isEnabled());
         }
 
-        return parent::update($subject);
+        parent::update($subject);
     }
 
     /**
@@ -546,7 +546,9 @@ class Horde_Imap_Client_Socket extends Horde_Imap_Client_Base
                     $this->logout();
                     $this->_setInit('capability');
                     $this->_setInit('namespace');
-                    return $this->login();
+                    $this->login();
+
+                    return;
                 }
 
                 unset($this->_temp['referralcount']);

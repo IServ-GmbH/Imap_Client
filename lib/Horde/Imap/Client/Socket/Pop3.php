@@ -286,7 +286,9 @@ class Horde_Imap_Client_Socket_Pop3 extends Horde_Imap_Client_Base
                     ($e->getCode() != $e::LOGIN_UNAVAILABLE) &&
                     ($e->getCode() != $e::POP3_TEMP_ERROR)) {
                     $this->_setInit();
-                    return $this->login();
+                    $this->login();
+
+                    return;
                 }
             }
         }
