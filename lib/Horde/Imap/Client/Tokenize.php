@@ -233,10 +233,13 @@ class Horde_Imap_Client_Tokenize implements Iterator
     }
 
     /**
+     * @todo Using return value of next() is a totally broken iterator implementation.
+     *
      * @return mixed  Either a string, boolean (true for open paren, false for
      *                close paren/EOS), Horde_Stream object, or null.
      */
-    public function next(): void
+    #[ReturnTypeWillChange]
+    public function next(): mixed
     {
         $level = isset($this->_nextModify['level'])
             ? $this->_nextModify['level']
@@ -370,6 +373,8 @@ class Horde_Imap_Client_Tokenize implements Iterator
         } while (true);
 
         $this->_current = $text;
+
+        return $text;
     }
 
     /**
@@ -382,7 +387,8 @@ class Horde_Imap_Client_Tokenize implements Iterator
         $changed = $this->_literalStream;
         $this->_literalStream = true;
 
-        $out = $this->next();
+        $this->next();
+        $out = $this->current();
 
         if ($changed) {
             $this->_literalStream = false;
