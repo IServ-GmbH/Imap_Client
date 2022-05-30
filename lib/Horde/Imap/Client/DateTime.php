@@ -24,26 +24,28 @@
  */
 class Horde_Imap_Client_DateTime extends DateTime
 {
-    /**
-     */
-    public function __construct($time = null, $tz = null)
+    public function __construct($time = '', $tz = null)
     {
         /* See https://bugs.php.net/bug.php?id=67118 */
         $bug_67118 = (version_compare(PHP_VERSION, '5.6', '>=')) ||
                      in_array(PHP_VERSION, array('5.4.29', '5.5.13'));
         $tz = new DateTimeZone('UTC');
 
+        if (null === $time) {
+            $time = '';
+        }
+
         /* Bug #14381 Catch malformed offset - which doesn't cause
            DateTime to throw exception. */
-        if (substr(rtrim($time), -5) === ' 0000') {
-            $time = substr(trim($time), 0, strlen(trim($time)) - 5) . ' +0000';
+        if (str_ends_with(rtrim($time), ' 0000')) {
+            $time = substr(trim($time), 0, -5) . ' +0000';
             try {
                 if ($bug_67118) {
                     new DateTime($time, $tz);
                 }
                 parent::__construct($time, $tz);
                 return;
-            } catch (Exception $e) {}
+            } catch (Exception) {}
         }
 
         try {
@@ -52,7 +54,7 @@ class Horde_Imap_Client_DateTime extends DateTime
             }
             parent::__construct($time, $tz);
             return;
-        } catch (Exception $e) {}
+        } catch (Exception) {}
 
         /* Check for malformed day-of-week parts, usually incorrectly
          *  localized. E.g. Fr, 15 Apr 2016 15:15:09 +0000 */
@@ -65,7 +67,7 @@ class Horde_Imap_Client_DateTime extends DateTime
                     }
                     parent::__construct($time, $tz);
                     return;
-                } catch (Exception $e) {}
+                } catch (Exception) {}
             }
         }
 
@@ -77,7 +79,7 @@ class Horde_Imap_Client_DateTime extends DateTime
                 }
                 parent::__construct($time . 'C', $tz);
                 return;
-            } catch (Exception $e) {}
+            } catch (Exception) {}
         }
 
         /* Bug #9847 - Catch paranthesized timezone information at end of date
@@ -86,11 +88,11 @@ class Horde_Imap_Client_DateTime extends DateTime
         if ($i) {
             try {
                 if ($bug_67118) {
-                    new DateTime($date, $tz);
+                    new DateTime($date ?? '', $tz);
                 }
-                parent::__construct($date, $tz);
+                parent::__construct($date ?? '', $tz);
                 return;
-            } catch (Exception $e) {}
+            } catch (Exception) {}
         }
 
         parent::__construct('@-1', $tz);

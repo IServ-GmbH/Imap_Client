@@ -52,10 +52,16 @@ class Horde_Imap_Client_Exception_ServerResponse extends Horde_Imap_Client_Excep
     public function __construct(
         $msg = null,
         $code = 0,
-        Horde_Imap_Client_Interaction_Server $server,
-        Horde_Imap_Client_Interaction_Pipeline $pipeline
+        Horde_Imap_Client_Interaction_Server $server = null,
+        Horde_Imap_Client_Interaction_Pipeline $pipeline = null,
     )
     {
+        // $server/$pipeline were required parameters *after* the optional $msg/$code. The code doesn't look like
+        // it's using the ctor with null/0 anywhere, but we cannot be sure so we "fix" this the creative way.
+        if (null === $server || null === $pipeline) {
+            throw new LogicException('Creating ServerResponse without server or pipeline is not supported!');
+        }
+
         $this->details = strval($server->token);
 
         $this->_pipeline = $pipeline;
